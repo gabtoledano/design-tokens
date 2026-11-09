@@ -1,0 +1,155 @@
+{
+  "color": {
+    "$type": "color",
+    "bg": {
+      "$root": {
+        "$value": "{color.navy.950}",
+        "$description": "Fond de la page."
+      },
+      "elevated": {
+        "$value": "{color.navy.900}",
+        "$description": "Fond des surfaces posées sur la page : cartes, fenêtres de code, palette de commandes."
+      },
+      "subtle": {
+        "$value": "{color.navy.800}",
+        "$description": "Fond discret d'une zone en retrait, par exemple derrière une image de projet."
+      }
+    },
+    "glass": {
+      "$value": "rgba(10, 10, 20, 0.72)",
+      "$description": "Fond semi-transparent du header fixe, à combiner avec un flou d'arrière-plan."
+    },
+    "scrim": {
+      "$value": "rgba(10, 10, 20, 0.95)",
+      "$description": "Voile presque opaque derrière une étiquette posée sur une image, ou derrière une surface modale."
+    },
+    "primary": {
+      "$root": {
+        "$value": "{color.indigo.600}",
+        "$description": "Couleur de marque : fond du bouton d'action principal et du filtre actif. Une seule action principale par zone."
+      },
+      "hover": {
+        "$value": "{color.indigo.700}",
+        "$description": "État survol de color.primary."
+      },
+      "light": {
+        "$value": "{color.indigo.400}",
+        "$description": "Variante de la couleur de marque pour du texte ou un dégradé sur fond de page."
+      }
+    },
+    "on-primary": {
+      "$value": "{color.white}",
+      "$description": "Texte et icônes posés sur un fond color.primary. Contraste conforme WCAG AA."
+    },
+    "accent": {
+      "$root": {
+        "$value": "{color.cyan.400}",
+        "$description": "Couleur d'accent : liens au survol, numéros de section, anneau de focus. Jamais en fond de grande surface."
+      },
+      "soft": {
+        "$value": "rgba(34, 211, 238, 0.08)",
+        "$description": "Fond très léger teinté d'accent, pour signaler un état actif sans attirer l'œil."
+      },
+      "line": {
+        "$value": "rgba(34, 211, 238, 0.4)",
+        "$description": "Bordure teintée d'accent, par exemple autour d'une étiquette de catégorie."
+      }
+    },
+    "text": {
+      "$root": {
+        "$value": "{color.white}",
+        "$description": "Texte principal : titres et contenus importants."
+      },
+      "muted": {
+        "$value": "{color.gray.400}",
+        "$description": "Texte courant secondaire : paragraphes, descriptions de cartes."
+      },
+      "subtle": {
+        "$value": "{color.gray.500}",
+        "$description": "Texte tertiaire : mentions, compteurs, notes. Réservé aux petits textes peu importants."
+      }
+    },
+    "border": {
+      "$root": {
+        "$value": "rgba(255, 255, 255, 0.08)",
+        "$description": "Bordure par défaut des cartes, champs et séparateurs."
+      },
+      "strong": {
+        "$value": "rgba(255, 255, 255, 0.16)",
+        "$description": "Bordure renforcée au survol ou au focus d'un élément."
+      }
+    },
+    "fill": {
+      "$root": {
+        "$value": "rgba(255, 255, 255, 0.06)",
+        "$description": "Remplissage léger d'un petit élément : pastille de compétence, barre de titre."
+      },
+      "hover": {
+        "$value": "rgba(255, 255, 255, 0.1)",
+        "$description": "État survol de color.fill."
+      }
+    },
+    "success": {
+      "$value": "{color.green.500}",
+      "$description": "Retour positif : message envoyé, validation réussie."
+    },
+    "danger": {
+      "$value": "{color.red.400}",
+      "$description": "Erreur : champ invalide, échec d'envoi."
+    }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "glow": {
+      "$value": [
+        { "color": "rgba(99, 102, 241, 0.15)", "offsetX": "0", "offsetY": "0", "blur": "60px", "spread": "0" },
+        { "color": "rgba(99, 102, 241, 0.08)", "offsetX": "0", "offsetY": "0", "blur": "120px", "spread": "0" }
+      ],
+      "$description": "Halo coloré autour d'un élément mis en avant : fenêtre de code, étude de cas."
+    },
+    "lifted": {
+      "$value": { "color": "rgba(0, 0, 0, 0.8)", "offsetX": "0", "offsetY": "24px", "blur": "60px", "spread": "-20px" },
+      "$description": "Ombre portée d'une carte soulevée au survol."
+    }
+  },
+  "spotlight": {
+    "$type": "color",
+    "$value": "rgba(129, 140, 248, 0.16)",
+    "$description": "Couleur du halo qui suit le curseur sur les cartes."
+  },
+  "code": {
+    "$type": "color",
+    "comment": {
+      "$value": "#8b949e",
+      "$description": "Coloration syntaxique : commentaires."
+    },
+    "keyword": {
+      "$value": "#c792ea",
+      "$description": "Coloration syntaxique : mots-clés (const, as)."
+    },
+    "variable": {
+      "$value": "{color.white}",
+      "$description": "Coloration syntaxique : noms de variables."
+    },
+    "punctuation": {
+      "$value": "{color.gray.400}",
+      "$description": "Coloration syntaxique : ponctuation et texte neutre."
+    },
+    "key": {
+      "$value": "#7ec8e3",
+      "$description": "Coloration syntaxique : clés d'objet et propriétés."
+    },
+    "string": {
+      "$value": "#c3e88d",
+      "$description": "Coloration syntaxique : chaînes de caractères."
+    },
+    "boolean": {
+      "$value": "#c792ea",
+      "$description": "Coloration syntaxique : booléens et null."
+    },
+    "number": {
+      "$value": "#f78c6c",
+      "$description": "Coloration syntaxique : nombres."
+    }
+  }
+}

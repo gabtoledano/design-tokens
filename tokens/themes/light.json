@@ -1,0 +1,62 @@
+{
+  "color": {
+    "$type": "color",
+    "bg": {
+      "$root": { "$value": "{color.mist.50}" },
+      "elevated": { "$value": "{color.white}" },
+      "subtle": { "$value": "{color.mist.100}" }
+    },
+    "glass": { "$value": "rgba(245, 246, 251, 0.75)" },
+    "scrim": { "$value": "rgba(255, 255, 255, 0.95)" },
+    "primary": {
+      "$root": { "$value": "{color.indigo.600}" },
+      "hover": { "$value": "{color.indigo.700}" },
+      "light": { "$value": "{color.indigo.700}" }
+    },
+    "on-primary": { "$value": "{color.white}" },
+    "accent": {
+      "$root": { "$value": "{color.cyan.700}" },
+      "soft": { "$value": "rgba(14, 116, 144, 0.07)" },
+      "line": { "$value": "rgba(14, 116, 144, 0.35)" }
+    },
+    "text": {
+      "$root": { "$value": "{color.ink.950}" },
+      "muted": { "$value": "{color.ink.600}" },
+      "subtle": { "$value": "{color.ink.500}" }
+    },
+    "border": {
+      "$root": { "$value": "rgba(13, 16, 32, 0.1)" },
+      "strong": { "$value": "rgba(13, 16, 32, 0.2)" }
+    },
+    "fill": {
+      "$root": { "$value": "rgba(13, 16, 32, 0.045)" },
+      "hover": { "$value": "rgba(13, 16, 32, 0.08)" }
+    },
+    "success": { "$value": "{color.green.700}" },
+    "danger": { "$value": "{color.red.600}" }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "glow": {
+      "$value": { "color": "rgba(79, 70, 229, 0.45)", "offsetX": "0", "offsetY": "18px", "blur": "50px", "spread": "-24px" }
+    },
+    "lifted": {
+      "$value": { "color": "rgba(13, 16, 32, 0.25)", "offsetX": "0", "offsetY": "24px", "blur": "50px", "spread": "-24px" }
+    }
+  },
+  "spotlight": {
+    "$type": "color",
+    "$value": "rgba(79, 70, 229, 0.1)"
+  },
+  "code": {
+    "$type": "color",
+    "comment": { "$value": "#6a737d" },
+    "keyword": { "$value": "#8250df" },
+    "variable": { "$value": "{color.ink.950}" },
+    "punctuation": { "$value": "#57606a" },
+    "key": { "$value": "#0550ae" },
+    "string": { "$value": "#0a7a41" },
+    "boolean": { "$value": "#8250df" },
+    "number": { "$value": "#b35900" }
+  }
+}

@@ -1,44 +1,71 @@
-// Vérifie que chaque token sémantique a une description ($description).
-// La GitHub Action lance ce script : s'il manque une description, il échoue
-// et la CI passe au rouge.
+// Deux contrôles lancés par la GitHub Action. Si l'un échoue, la CI passe au rouge.
+//   1. Chaque token sémantique a une description ($description).
+//   2. Le thème clair définit exactement les mêmes tokens que le thème sombre.
 // Lancement : npm run check
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const SEMANTIC_DIR = 'tokens/semantic';
-const missing = [];
-let count = 0;
+// Les descriptions vivent dans les tokens sémantiques et dans le thème de
+// référence (sombre). Le thème clair ne redonne que les valeurs.
+const DESCRIBED = [
+  ...readdirSync('tokens/semantic', { recursive: true })
+    .filter((file) => file.endsWith('.json'))
+    .map((file) => join('tokens/semantic', file)),
+  'tokens/themes/dark.json',
+];
+const REFERENCE_THEME = 'tokens/themes/dark.json';
+const OTHER_THEMES = ['tokens/themes/light.json'];
 
-// Parcourt l'arbre JSON : un objet qui contient "$value" est un token.
-function walk(node, path, file) {
-  if (!node || typeof node !== 'object') return;
+// Liste les tokens d'un fichier : un objet qui contient "$value" est un token.
+// "$root" (DTCG 2025.10) est un token racine, il faut donc le parcourir.
+function collect(file) {
+  const tokens = [];
+  const walk = (node, path) => {
+    if (!node || typeof node !== 'object') return;
+    if ('$value' in node) {
+      tokens.push({ path: path.join('.'), node });
+      return;
+    }
+    for (const [key, child] of Object.entries(node)) {
+      if (key.startsWith('$') && key !== '$root') continue; // $type, $description d'un groupe…
+      walk(child, [...path, key]);
+    }
+  };
+  walk(JSON.parse(readFileSync(file, 'utf8')), []);
+  return tokens;
+}
 
-  if ('$value' in node) {
-    count++;
+const errors = [];
+
+// 1. Descriptions
+let described = 0;
+for (const file of DESCRIBED) {
+  for (const { path, node } of collect(file)) {
+    described++;
     const description = node.$description;
     if (typeof description !== 'string' || description.trim() === '') {
-      missing.push(`${path.join('.')}  (${file})`);
+      errors.push(`Description manquante : ${path}  (${file})`);
     }
-    return;
-  }
-
-  for (const [key, child] of Object.entries(node)) {
-    if (key.startsWith('$')) continue; // $type, $description d'un groupe…
-    walk(child, [...path, key], file);
   }
 }
 
-const files = readdirSync(SEMANTIC_DIR, { recursive: true }).filter((f) => f.endsWith('.json'));
-
-for (const file of files) {
-  const fullPath = join(SEMANTIC_DIR, file);
-  walk(JSON.parse(readFileSync(fullPath, 'utf8')), [], fullPath);
+// 2. Parité des thèmes
+const reference = new Set(collect(REFERENCE_THEME).map((token) => token.path));
+for (const file of OTHER_THEMES) {
+  const theme = new Set(collect(file).map((token) => token.path));
+  for (const path of reference) {
+    if (!theme.has(path)) errors.push(`Token absent du thème : ${path}  (${file})`);
+  }
+  for (const path of theme) {
+    if (!reference.has(path)) errors.push(`Token inconnu du thème de référence : ${path}  (${file})`);
+  }
 }
 
-if (missing.length > 0) {
-  console.error(`✗ ${missing.length} token(s) sémantique(s) sans description :`);
-  for (const line of missing) console.error(`  - ${line}`);
+if (errors.length > 0) {
+  console.error(`✗ ${errors.length} problème(s) :`);
+  for (const line of errors) console.error(`  - ${line}`);
   process.exit(1);
 }
 
-console.log(`✓ ${count} tokens sémantiques, tous ont une description.`);
+console.log(`✓ ${described} tokens sémantiques, tous décrits.`);
+console.log(`✓ ${reference.size} tokens de thème, présents dans les ${OTHER_THEMES.length + 1} thèmes.`);

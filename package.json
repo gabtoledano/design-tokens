@@ -1,7 +1,7 @@
 {
   "name": "design-tokens",
   "version": "1.0.0",
-  "description": "Design tokens DTCG lisibles par les humains et par les agents IA, générés avec Style Dictionary",
+  "description": "Design tokens de gabrieltoledano.dev (DTCG, thèmes sombre et clair), lisibles par les humains et par les agents IA",
   "type": "module",
   "private": true,
   "scripts": {

@@ -1,0 +1,19 @@
+{
+  "container": {
+    "$type": "dimension",
+    "$value": "80rem",
+    "$description": "Largeur maximale du contenu centré de chaque section."
+  },
+  "gutter": {
+    "$type": "dimension",
+    "$value": "clamp(1.25rem, 5vw, 4rem)",
+    "$description": "Marge latérale fluide entre le contenu et le bord de l'écran."
+  },
+  "header": {
+    "height": {
+      "$type": "dimension",
+      "$value": "4.5rem",
+      "$description": "Hauteur du header fixe. Sert aussi à décaler les ancres pour qu'elles ne passent pas dessous."
+    }
+  }
+}

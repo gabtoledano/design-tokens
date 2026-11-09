@@ -1,74 +1,99 @@
-# Design tokens lisibles par les humains et par l'IA
+# Design tokens de gabrieltoledano.dev
 
-Un seul fichier source de tokens au format [DTCG](https://www.designtokens.org/), deux sorties générées par [Style Dictionary](https://styledictionary.com/) 5.8 :
+La charte de mon portfolio, écrite une seule fois au format [DTCG](https://www.designtokens.org/), puis générée par [Style Dictionary](https://styledictionary.com/) 5.8 en deux fichiers :
 
-- `build/tokens.css` : les variables CSS pour le code ;
-- `build/tokens.agents.json` : un JSON à plat qu'un agent IA peut lire pour choisir le bon token (nom, variable CSS, valeur, alias, description, plus des règles d'usage).
+- `build/tokens.css` : toutes les variables CSS du site [gabrieltoledano.dev](https://www.gabrieltoledano.dev/), avec un thème sombre et un thème clair ;
+- `build/tokens.agents.json` : un JSON à plat qu'un agent IA peut lire pour choisir le bon token. Il contient le nom, la variable CSS, la valeur dans chaque thème, l'alias et la description, plus des règles d'usage.
 
-Une GitHub Action bloque toute modification où un token sémantique n'a pas de description. Sans description, un agent ne sait pas quand utiliser un token.
+Une GitHub Action bloque toute modification où un token sémantique n'a pas de description, ou où un thème oublie un token.
 
 ## Structure
 
 ```
 tokens/
-  primitives/   palette de base (couleurs, espacements bruts)
-  semantic/     tokens d'usage, qui pointent vers les primitives et ont tous une description
+  primitives/   palette de base (indigo, cyan, navy…), à ne pas utiliser directement
+  semantic/     typographie, mise en page, espacements, arrondis, mouvement : tous décrits
+  themes/
+    dark.json   thème de référence (par défaut) : couleurs et ombres, avec leurs descriptions
+    light.json  thème clair : les mêmes tokens, seulement avec leurs valeurs
 formats/
   agents.js     format personnalisé « json/agents »
 scripts/
-  check-descriptions.js   contrôle lancé par la CI
-build.js        configuration Style Dictionary
-build/          fichiers générés (commités pour être visibles sur GitHub)
+  check-descriptions.js   contrôles lancés par la CI
+build.js        configuration Style Dictionary (deux thèmes, un seul fichier CSS)
+build/          fichiers générés, commités pour être visibles sur GitHub
 ```
+
+Les noms suivent la convention DTCG 2025.10, y compris les tokens racines `$root`. Par exemple, `color.text` et `color.text.muted` donnent `--color-text` et `--color-text-muted`.
 
 ## Commandes
 
 ```bash
 npm install      # installe Style Dictionary (version fixée à 5.8.0)
-npm run check    # vérifie que chaque token sémantique a une description
+npm run check    # descriptions présentes, thèmes complets
 npm run build    # génère build/tokens.css et build/tokens.agents.json
 ```
 
 ## Exemple
 
-Source (`tokens/semantic/color.json`) :
+Source :
 
-```json
-"primary": {
-  "$value": "{color.blue.500}",
-  "$description": "Fond des boutons principaux et couleur des liens. Une seule action principale par écran."
-}
+```jsonc
+// tokens/themes/dark.json
+"bg": { "$root": { "$value": "{color.navy.950}", "$description": "Fond de la page." } }
+// tokens/themes/light.json
+"bg": { "$root": { "$value": "{color.mist.50}" } }
 ```
 
 Sortie CSS :
 
 ```css
---color-action-primary: var(--color-blue-500);
+:root, [data-theme="dark"] { --color-bg: var(--color-navy-950); }
+[data-theme="light"]       { --color-bg: var(--color-mist-50); }
 ```
 
 Sortie pour les agents :
 
 ```json
 {
-  "name": "color.action.primary",
-  "cssVariable": "--color-action-primary",
-  "value": "#2563eb",
+  "name": "color.bg",
+  "cssVariable": "--color-bg",
+  "value": "#0a0a14",
   "type": "color",
   "tier": "semantic",
-  "alias": "color.blue.500",
-  "description": "Fond des boutons principaux et couleur des liens. Une seule action principale par écran."
+  "alias": "color.navy.950",
+  "description": "Fond de la page.",
+  "themes": {
+    "dark": { "value": "#0a0a14", "alias": "color.navy.950" },
+    "light": { "value": "#f5f6fb", "alias": "color.mist.50" }
+  }
 }
 ```
 
-## Ajouter un token
+## Ajouter ou modifier un token
 
-1. Ajoute la couleur ou l'espacement brut dans `tokens/primitives/` si elle n'existe pas encore.
-2. Ajoute le token d'usage dans `tokens/semantic/`, avec une référence `{…}` et une `$description`.
+1. Si la couleur brute n'existe pas encore, ajoute-la dans `tokens/primitives/`.
+2. Ajoute le token d'usage avec une référence `{…}` et une `$description` :
+   - dans `tokens/semantic/` s'il ne dépend pas du thème ;
+   - sinon dans `tokens/themes/dark.json`, puis sa valeur claire au même endroit dans `tokens/themes/light.json`.
 3. Lance `npm run check` puis `npm run build`, et commite aussi le dossier `build/`.
 
-La CI vérifie que `build/` correspond bien aux sources : si tu oublies de relancer le build, elle passe au rouge.
+## Utilisation dans le portfolio
+
+Le dépôt [portfolio](https://github.com/gabtoledano/portfolio) utilise une copie des deux fichiers générés :
+
+| Fichier généré | Copie dans le portfolio |
+| --- | --- |
+| `build/tokens.css` | `src/styles/tokens.css` |
+| `build/tokens.agents.json` | `src/data/design-tokens.agents.json` |
+
+Le thème est piloté par l'attribut `data-theme` sur `<html>`. Les composants n'utilisent que des tokens sémantiques, jamais la palette.
 
 ## Contrôles qualité
 
-- Contraste : `color.text.on-action` sur `color.action.primary` = 5,17:1 (WCAG AA ≥ 4,5:1).
-- `npm audit` signale des alertes dans des dépendances internes de Style Dictionary. Elles ne concernent que l'outil de build lancé en local sur nos propres fichiers. La seule « correction » proposée revient à Style Dictionary 3, donc on reste en 5.8.0.
+- **CI** : une description manquante, un token absent d'un thème ou un `build/` pas à jour font échouer la GitHub Action.
+- **Contrastes (WCAG 2)** :
+  - texte sur bouton principal (`color.on-primary` sur `color.primary`) : 6,29:1 dans les deux thèmes ;
+  - texte principal sur fond : 19,69:1 en sombre, 17,50:1 en clair ;
+  - texte tertiaire (`color.text.subtle`) : 5,03:1 en sombre, 4,57:1 en clair. Il est réservé aux petits textes peu importants.
+- **`npm audit`** signale des alertes dans des dépendances internes de Style Dictionary. Elles ne concernent que l'outil de build lancé en local sur nos propres fichiers. La seule « correction » proposée revient à Style Dictionary 3, donc on reste en 5.8.0.
