@@ -1,0 +1,14 @@
+{
+  "color": {
+    "$type": "color",
+    "white": { "$value": "#ffffff" },
+    "gray": {
+      "100": { "$value": "#f3f4f6" },
+      "900": { "$value": "#111827" }
+    },
+    "blue": {
+      "500": { "$value": "#2563eb" },
+      "700": { "$value": "#1d4ed8" }
+    }
+  }
+}

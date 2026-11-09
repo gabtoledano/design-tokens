@@ -1,0 +1,19 @@
+{
+  "name": "design-tokens",
+  "version": "1.0.0",
+  "description": "Design tokens DTCG lisibles par les humains et par les agents IA, générés avec Style Dictionary",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "check": "node scripts/check-descriptions.js",
+    "build": "node build.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "author": "Gabriel Toledano",
+  "license": "MIT",
+  "devDependencies": {
+    "style-dictionary": "5.8.0"
+  }
+}

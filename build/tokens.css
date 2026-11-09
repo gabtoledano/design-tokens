@@ -1,0 +1,21 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --color-white: #ffffff;
+  --color-gray-100: #f3f4f6;
+  --color-gray-900: #111827;
+  --color-blue-500: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --space-2: 8px;
+  --space-4: 16px;
+  --color-text-default: var(--color-gray-900); /** Couleur du texte courant sur un fond clair. */
+  --color-text-on-action: var(--color-white); /** Texte et icônes posés sur un fond color.action.primary. Contraste conforme WCAG AA. */
+  --color-background-surface: var(--color-white); /** Fond principal des pages et des cartes. */
+  --color-background-subtle: var(--color-gray-100); /** Fond discret pour séparer une zone : encadré, ligne de tableau survolée. */
+  --color-action-primary: var(--color-blue-500); /** Fond des boutons principaux et couleur des liens. Une seule action principale par écran. */
+  --color-action-primary-hover: var(--color-blue-700); /** État survol et focus de color.action.primary. */
+  --space-inset-sm: var(--space-2); /** Marge intérieure des petits éléments : badges, champs compacts. */
+  --space-inset-md: var(--space-4); /** Marge intérieure par défaut des cartes et marge horizontale des boutons. */
+}

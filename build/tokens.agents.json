@@ -1,0 +1,146 @@
+{
+  "description": "Design tokens de Gabriel Toledano. Fichier généré depuis tokens/ par Style Dictionary : ne pas le modifier à la main.",
+  "rules": [
+    "Dans le code, utilise uniquement les tokens de niveau « semantic », via leur variable CSS.",
+    "Les tokens « primitive » forment la palette de base : ne les utilise pas directement dans un composant.",
+    "Choisis un token d'après sa description, pas d'après sa valeur.",
+    "N'écris jamais une couleur ou un espacement en dur : s'il manque un token, signale-le."
+  ],
+  "tokens": [
+    {
+      "name": "color.white",
+      "cssVariable": "--color-white",
+      "value": "#ffffff",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.gray.100",
+      "cssVariable": "--color-gray-100",
+      "value": "#f3f4f6",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.gray.900",
+      "cssVariable": "--color-gray-900",
+      "value": "#111827",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.blue.500",
+      "cssVariable": "--color-blue-500",
+      "value": "#2563eb",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.blue.700",
+      "cssVariable": "--color-blue-700",
+      "value": "#1d4ed8",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.text.default",
+      "cssVariable": "--color-text-default",
+      "value": "#111827",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.gray.900",
+      "description": "Couleur du texte courant sur un fond clair."
+    },
+    {
+      "name": "color.text.on-action",
+      "cssVariable": "--color-text-on-action",
+      "value": "#ffffff",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.white",
+      "description": "Texte et icônes posés sur un fond color.action.primary. Contraste conforme WCAG AA."
+    },
+    {
+      "name": "color.background.surface",
+      "cssVariable": "--color-background-surface",
+      "value": "#ffffff",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.white",
+      "description": "Fond principal des pages et des cartes."
+    },
+    {
+      "name": "color.background.subtle",
+      "cssVariable": "--color-background-subtle",
+      "value": "#f3f4f6",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.gray.100",
+      "description": "Fond discret pour séparer une zone : encadré, ligne de tableau survolée."
+    },
+    {
+      "name": "color.action.primary",
+      "cssVariable": "--color-action-primary",
+      "value": "#2563eb",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.blue.500",
+      "description": "Fond des boutons principaux et couleur des liens. Une seule action principale par écran."
+    },
+    {
+      "name": "color.action.primary-hover",
+      "cssVariable": "--color-action-primary-hover",
+      "value": "#1d4ed8",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.blue.700",
+      "description": "État survol et focus de color.action.primary."
+    },
+    {
+      "name": "space.2",
+      "cssVariable": "--space-2",
+      "value": "8px",
+      "type": "dimension",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "space.4",
+      "cssVariable": "--space-4",
+      "value": "16px",
+      "type": "dimension",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "space.inset.sm",
+      "cssVariable": "--space-inset-sm",
+      "value": "8px",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": "space.2",
+      "description": "Marge intérieure des petits éléments : badges, champs compacts."
+    },
+    {
+      "name": "space.inset.md",
+      "cssVariable": "--space-inset-md",
+      "value": "16px",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": "space.4",
+      "description": "Marge intérieure par défaut des cartes et marge horizontale des boutons."
+    }
+  ]
+}

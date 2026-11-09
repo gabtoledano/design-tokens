@@ -1,0 +1,33 @@
+name: Tokens
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Vérifier que chaque token sémantique a une description
+        run: npm run check
+
+      - name: Générer tokens.css et tokens.agents.json
+        run: npm run build
+
+      - name: Vérifier que le dossier build/ est à jour
+        run: |
+          git diff --exit-code build/ || {
+            echo "::error::build/ n'est pas à jour. Lance npm run build et commite le résultat."
+            exit 1
+          }
