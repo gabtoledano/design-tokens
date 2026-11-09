@@ -1,0 +1,40 @@
+{
+  "font": {
+    "$type": "fontFamily",
+    "family": {
+      "$value": ["Inter", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+      "$description": "Police de tout le texte courant, des titres et des boutons."
+    },
+    "mono": {
+      "$value": ["DM Mono", "ui-monospace", "SF Mono", "Courier New", "monospace"],
+      "$description": "Police à chasse fixe : code, numéros de section, étiquettes techniques."
+    }
+  },
+  "text": {
+    "$type": "dimension",
+    "hero": {
+      "$value": "clamp(2.75rem, 1.2rem + 6.4vw, 5rem)",
+      "$description": "Taille fluide du grand titre d'accueil. Un seul usage par page."
+    },
+    "section": {
+      "$value": "clamp(1.75rem, 1.1rem + 2.2vw, 2.5rem)",
+      "$description": "Taille fluide des titres de section (h2)."
+    },
+    "lg": {
+      "$value": "1.0625rem",
+      "$description": "Texte d'introduction ou d'accroche, un cran au-dessus du texte courant."
+    },
+    "md": {
+      "$value": "0.9375rem",
+      "$description": "Texte courant des paragraphes."
+    },
+    "sm": {
+      "$value": "0.8125rem",
+      "$description": "Texte secondaire : descriptions de cartes, liens de navigation, boutons de filtre."
+    },
+    "xs": {
+      "$value": "0.75rem",
+      "$description": "Plus petite taille : étiquettes, badges, mentions techniques. Jamais pour un paragraphe."
+    }
+  }
+}

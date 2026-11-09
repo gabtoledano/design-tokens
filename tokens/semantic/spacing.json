@@ -1,0 +1,44 @@
+{
+  "spacing": {
+    "$type": "dimension",
+    "xs": {
+      "$value": "0.5rem",
+      "$description": "Espace serré entre éléments liés : icône et libellé, pastilles d'une liste."
+    },
+    "sm": {
+      "$value": "1rem",
+      "$description": "Espace par défaut entre deux éléments d'un même bloc."
+    },
+    "md": {
+      "$value": "2rem",
+      "$description": "Espace entre deux blocs d'une même section."
+    },
+    "lg": {
+      "$value": "4rem",
+      "$description": "Grand espace pour aérer une mise en page large."
+    },
+    "xl": {
+      "$value": "clamp(4rem, 10vw, 7rem)",
+      "$description": "Espace vertical fluide entre deux sections de la page."
+    }
+  },
+  "radius": {
+    "$type": "dimension",
+    "sm": {
+      "$value": "6px",
+      "$description": "Petits éléments : pastilles de compétences, anneau de focus, boutons icônes."
+    },
+    "md": {
+      "$value": "10px",
+      "$description": "Éléments moyens : champs de formulaire, blocs internes d'une carte."
+    },
+    "lg": {
+      "$value": "16px",
+      "$description": "Grandes surfaces : cartes de projet, fenêtres de code, étude de cas."
+    },
+    "full": {
+      "$value": "999px",
+      "$description": "Forme de pilule : boutons d'action, filtres, étiquettes arrondies."
+    }
+  }
+}

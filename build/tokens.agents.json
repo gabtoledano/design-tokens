@@ -1,10 +1,11 @@
 {
-  "description": "Design tokens de Gabriel Toledano. Fichier généré depuis tokens/ par Style Dictionary : ne pas le modifier à la main.",
+  "description": "Design tokens du portfolio gabrieltoledano.dev. Fichier généré depuis tokens/ par Style Dictionary : ne pas le modifier à la main. « value » donne la valeur du thème par défaut (sombre) ; « themes » donne la valeur de chaque thème.",
   "rules": [
     "Dans le code, utilise uniquement les tokens de niveau « semantic », via leur variable CSS.",
     "Les tokens « primitive » forment la palette de base : ne les utilise pas directement dans un composant.",
     "Choisis un token d'après sa description, pas d'après sa valeur.",
-    "N'écris jamais une couleur ou un espacement en dur : s'il manque un token, signale-le."
+    "N'écris jamais une couleur, un espacement ou une durée en dur : s'il manque un token, signale-le.",
+    "Les couleurs changent avec le thème (attribut data-theme sur <html>) : utilise toujours la variable, jamais la valeur d'un thème."
   ],
   "tokens": [
     {
@@ -17,130 +18,1044 @@
       "description": null
     },
     {
-      "name": "color.gray.100",
-      "cssVariable": "--color-gray-100",
-      "value": "#f3f4f6",
+      "name": "color.navy.800",
+      "cssVariable": "--color-navy-800",
+      "value": "#1a1a2e",
       "type": "color",
       "tier": "primitive",
       "alias": null,
       "description": null
     },
     {
-      "name": "color.gray.900",
-      "cssVariable": "--color-gray-900",
-      "value": "#111827",
+      "name": "color.navy.900",
+      "cssVariable": "--color-navy-900",
+      "value": "#111122",
       "type": "color",
       "tier": "primitive",
       "alias": null,
       "description": null
     },
     {
-      "name": "color.blue.500",
-      "cssVariable": "--color-blue-500",
-      "value": "#2563eb",
+      "name": "color.navy.950",
+      "cssVariable": "--color-navy-950",
+      "value": "#0a0a14",
       "type": "color",
       "tier": "primitive",
       "alias": null,
       "description": null
     },
     {
-      "name": "color.blue.700",
-      "cssVariable": "--color-blue-700",
-      "value": "#1d4ed8",
+      "name": "color.mist.50",
+      "cssVariable": "--color-mist-50",
+      "value": "#f5f6fb",
       "type": "color",
       "tier": "primitive",
       "alias": null,
       "description": null
     },
     {
-      "name": "color.text.default",
-      "cssVariable": "--color-text-default",
-      "value": "#111827",
+      "name": "color.mist.100",
+      "cssVariable": "--color-mist-100",
+      "value": "#eceefa",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.ink.500",
+      "cssVariable": "--color-ink-500",
+      "value": "#6b6f88",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.ink.600",
+      "cssVariable": "--color-ink-600",
+      "value": "#53566e",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.ink.950",
+      "cssVariable": "--color-ink-950",
+      "value": "#0d1020",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.gray.400",
+      "cssVariable": "--color-gray-400",
+      "value": "#a0a0b0",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.gray.500",
+      "cssVariable": "--color-gray-500",
+      "value": "#7680a0",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.indigo.400",
+      "cssVariable": "--color-indigo-400",
+      "value": "#818cf8",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.indigo.600",
+      "cssVariable": "--color-indigo-600",
+      "value": "#4f46e5",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.indigo.700",
+      "cssVariable": "--color-indigo-700",
+      "value": "#4338ca",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.cyan.400",
+      "cssVariable": "--color-cyan-400",
+      "value": "#22d3ee",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.cyan.700",
+      "cssVariable": "--color-cyan-700",
+      "value": "#0e7490",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.green.500",
+      "cssVariable": "--color-green-500",
+      "value": "#22c55e",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.green.700",
+      "cssVariable": "--color-green-700",
+      "value": "#15803d",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.red.400",
+      "cssVariable": "--color-red-400",
+      "value": "#f87171",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.red.600",
+      "cssVariable": "--color-red-600",
+      "value": "#dc2626",
+      "type": "color",
+      "tier": "primitive",
+      "alias": null,
+      "description": null
+    },
+    {
+      "name": "color.bg",
+      "cssVariable": "--color-bg",
+      "value": "#0a0a14",
       "type": "color",
       "tier": "semantic",
-      "alias": "color.gray.900",
-      "description": "Couleur du texte courant sur un fond clair."
+      "alias": "color.navy.950",
+      "description": "Fond de la page.",
+      "themes": {
+        "dark": {
+          "value": "#0a0a14",
+          "alias": "color.navy.950"
+        },
+        "light": {
+          "value": "#f5f6fb",
+          "alias": "color.mist.50"
+        }
+      }
     },
     {
-      "name": "color.text.on-action",
-      "cssVariable": "--color-text-on-action",
+      "name": "color.bg.elevated",
+      "cssVariable": "--color-bg-elevated",
+      "value": "#111122",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.navy.900",
+      "description": "Fond des surfaces posées sur la page : cartes, fenêtres de code, palette de commandes.",
+      "themes": {
+        "dark": {
+          "value": "#111122",
+          "alias": "color.navy.900"
+        },
+        "light": {
+          "value": "#ffffff",
+          "alias": "color.white"
+        }
+      }
+    },
+    {
+      "name": "color.bg.subtle",
+      "cssVariable": "--color-bg-subtle",
+      "value": "#1a1a2e",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.navy.800",
+      "description": "Fond discret d'une zone en retrait, par exemple derrière une image de projet.",
+      "themes": {
+        "dark": {
+          "value": "#1a1a2e",
+          "alias": "color.navy.800"
+        },
+        "light": {
+          "value": "#eceefa",
+          "alias": "color.mist.100"
+        }
+      }
+    },
+    {
+      "name": "color.glass",
+      "cssVariable": "--color-glass",
+      "value": "rgba(10, 10, 20, 0.72)",
+      "type": "color",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Fond semi-transparent du header fixe, à combiner avec un flou d'arrière-plan.",
+      "themes": {
+        "dark": {
+          "value": "rgba(10, 10, 20, 0.72)",
+          "alias": null
+        },
+        "light": {
+          "value": "rgba(245, 246, 251, 0.75)",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "color.scrim",
+      "cssVariable": "--color-scrim",
+      "value": "rgba(10, 10, 20, 0.95)",
+      "type": "color",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Voile presque opaque derrière une étiquette posée sur une image, ou derrière une surface modale.",
+      "themes": {
+        "dark": {
+          "value": "rgba(10, 10, 20, 0.95)",
+          "alias": null
+        },
+        "light": {
+          "value": "rgba(255, 255, 255, 0.95)",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "color.primary",
+      "cssVariable": "--color-primary",
+      "value": "#4f46e5",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.indigo.600",
+      "description": "Couleur de marque : fond du bouton d'action principal et du filtre actif. Une seule action principale par zone.",
+      "themes": {
+        "dark": {
+          "value": "#4f46e5",
+          "alias": "color.indigo.600"
+        },
+        "light": {
+          "value": "#4f46e5",
+          "alias": "color.indigo.600"
+        }
+      }
+    },
+    {
+      "name": "color.primary.hover",
+      "cssVariable": "--color-primary-hover",
+      "value": "#4338ca",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.indigo.700",
+      "description": "État survol de color.primary.",
+      "themes": {
+        "dark": {
+          "value": "#4338ca",
+          "alias": "color.indigo.700"
+        },
+        "light": {
+          "value": "#4338ca",
+          "alias": "color.indigo.700"
+        }
+      }
+    },
+    {
+      "name": "color.primary.light",
+      "cssVariable": "--color-primary-light",
+      "value": "#818cf8",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.indigo.400",
+      "description": "Variante de la couleur de marque pour du texte ou un dégradé sur fond de page.",
+      "themes": {
+        "dark": {
+          "value": "#818cf8",
+          "alias": "color.indigo.400"
+        },
+        "light": {
+          "value": "#4338ca",
+          "alias": "color.indigo.700"
+        }
+      }
+    },
+    {
+      "name": "color.on-primary",
+      "cssVariable": "--color-on-primary",
       "value": "#ffffff",
       "type": "color",
       "tier": "semantic",
       "alias": "color.white",
-      "description": "Texte et icônes posés sur un fond color.action.primary. Contraste conforme WCAG AA."
+      "description": "Texte et icônes posés sur un fond color.primary. Contraste conforme WCAG AA.",
+      "themes": {
+        "dark": {
+          "value": "#ffffff",
+          "alias": "color.white"
+        },
+        "light": {
+          "value": "#ffffff",
+          "alias": "color.white"
+        }
+      }
     },
     {
-      "name": "color.background.surface",
-      "cssVariable": "--color-background-surface",
+      "name": "color.accent",
+      "cssVariable": "--color-accent",
+      "value": "#22d3ee",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.cyan.400",
+      "description": "Couleur d'accent : liens au survol, numéros de section, anneau de focus. Jamais en fond de grande surface.",
+      "themes": {
+        "dark": {
+          "value": "#22d3ee",
+          "alias": "color.cyan.400"
+        },
+        "light": {
+          "value": "#0e7490",
+          "alias": "color.cyan.700"
+        }
+      }
+    },
+    {
+      "name": "color.accent.soft",
+      "cssVariable": "--color-accent-soft",
+      "value": "rgba(34, 211, 238, 0.08)",
+      "type": "color",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Fond très léger teinté d'accent, pour signaler un état actif sans attirer l'œil.",
+      "themes": {
+        "dark": {
+          "value": "rgba(34, 211, 238, 0.08)",
+          "alias": null
+        },
+        "light": {
+          "value": "rgba(14, 116, 144, 0.07)",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "color.accent.line",
+      "cssVariable": "--color-accent-line",
+      "value": "rgba(34, 211, 238, 0.4)",
+      "type": "color",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Bordure teintée d'accent, par exemple autour d'une étiquette de catégorie.",
+      "themes": {
+        "dark": {
+          "value": "rgba(34, 211, 238, 0.4)",
+          "alias": null
+        },
+        "light": {
+          "value": "rgba(14, 116, 144, 0.35)",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "color.text",
+      "cssVariable": "--color-text",
       "value": "#ffffff",
       "type": "color",
       "tier": "semantic",
       "alias": "color.white",
-      "description": "Fond principal des pages et des cartes."
+      "description": "Texte principal : titres et contenus importants.",
+      "themes": {
+        "dark": {
+          "value": "#ffffff",
+          "alias": "color.white"
+        },
+        "light": {
+          "value": "#0d1020",
+          "alias": "color.ink.950"
+        }
+      }
     },
     {
-      "name": "color.background.subtle",
-      "cssVariable": "--color-background-subtle",
-      "value": "#f3f4f6",
+      "name": "color.text.muted",
+      "cssVariable": "--color-text-muted",
+      "value": "#a0a0b0",
       "type": "color",
       "tier": "semantic",
-      "alias": "color.gray.100",
-      "description": "Fond discret pour séparer une zone : encadré, ligne de tableau survolée."
+      "alias": "color.gray.400",
+      "description": "Texte courant secondaire : paragraphes, descriptions de cartes.",
+      "themes": {
+        "dark": {
+          "value": "#a0a0b0",
+          "alias": "color.gray.400"
+        },
+        "light": {
+          "value": "#53566e",
+          "alias": "color.ink.600"
+        }
+      }
     },
     {
-      "name": "color.action.primary",
-      "cssVariable": "--color-action-primary",
-      "value": "#2563eb",
+      "name": "color.text.subtle",
+      "cssVariable": "--color-text-subtle",
+      "value": "#7680a0",
       "type": "color",
       "tier": "semantic",
-      "alias": "color.blue.500",
-      "description": "Fond des boutons principaux et couleur des liens. Une seule action principale par écran."
+      "alias": "color.gray.500",
+      "description": "Texte tertiaire : mentions, compteurs, notes. Réservé aux petits textes peu importants.",
+      "themes": {
+        "dark": {
+          "value": "#7680a0",
+          "alias": "color.gray.500"
+        },
+        "light": {
+          "value": "#6b6f88",
+          "alias": "color.ink.500"
+        }
+      }
     },
     {
-      "name": "color.action.primary-hover",
-      "cssVariable": "--color-action-primary-hover",
-      "value": "#1d4ed8",
+      "name": "color.border",
+      "cssVariable": "--color-border",
+      "value": "rgba(255, 255, 255, 0.08)",
       "type": "color",
       "tier": "semantic",
-      "alias": "color.blue.700",
-      "description": "État survol et focus de color.action.primary."
-    },
-    {
-      "name": "space.2",
-      "cssVariable": "--space-2",
-      "value": "8px",
-      "type": "dimension",
-      "tier": "primitive",
       "alias": null,
-      "description": null
+      "description": "Bordure par défaut des cartes, champs et séparateurs.",
+      "themes": {
+        "dark": {
+          "value": "rgba(255, 255, 255, 0.08)",
+          "alias": null
+        },
+        "light": {
+          "value": "rgba(13, 16, 32, 0.1)",
+          "alias": null
+        }
+      }
     },
     {
-      "name": "space.4",
-      "cssVariable": "--space-4",
+      "name": "color.border.strong",
+      "cssVariable": "--color-border-strong",
+      "value": "rgba(255, 255, 255, 0.16)",
+      "type": "color",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Bordure renforcée au survol ou au focus d'un élément.",
+      "themes": {
+        "dark": {
+          "value": "rgba(255, 255, 255, 0.16)",
+          "alias": null
+        },
+        "light": {
+          "value": "rgba(13, 16, 32, 0.2)",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "color.fill",
+      "cssVariable": "--color-fill",
+      "value": "rgba(255, 255, 255, 0.06)",
+      "type": "color",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Remplissage léger d'un petit élément : pastille de compétence, barre de titre.",
+      "themes": {
+        "dark": {
+          "value": "rgba(255, 255, 255, 0.06)",
+          "alias": null
+        },
+        "light": {
+          "value": "rgba(13, 16, 32, 0.045)",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "color.fill.hover",
+      "cssVariable": "--color-fill-hover",
+      "value": "rgba(255, 255, 255, 0.1)",
+      "type": "color",
+      "tier": "semantic",
+      "alias": null,
+      "description": "État survol de color.fill.",
+      "themes": {
+        "dark": {
+          "value": "rgba(255, 255, 255, 0.1)",
+          "alias": null
+        },
+        "light": {
+          "value": "rgba(13, 16, 32, 0.08)",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "color.success",
+      "cssVariable": "--color-success",
+      "value": "#22c55e",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.green.500",
+      "description": "Retour positif : message envoyé, validation réussie.",
+      "themes": {
+        "dark": {
+          "value": "#22c55e",
+          "alias": "color.green.500"
+        },
+        "light": {
+          "value": "#15803d",
+          "alias": "color.green.700"
+        }
+      }
+    },
+    {
+      "name": "color.danger",
+      "cssVariable": "--color-danger",
+      "value": "#f87171",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.red.400",
+      "description": "Erreur : champ invalide, échec d'envoi.",
+      "themes": {
+        "dark": {
+          "value": "#f87171",
+          "alias": "color.red.400"
+        },
+        "light": {
+          "value": "#dc2626",
+          "alias": "color.red.600"
+        }
+      }
+    },
+    {
+      "name": "container",
+      "cssVariable": "--container",
+      "value": "80rem",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Largeur maximale du contenu centré de chaque section."
+    },
+    {
+      "name": "gutter",
+      "cssVariable": "--gutter",
+      "value": "clamp(1.25rem, 5vw, 4rem)",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Marge latérale fluide entre le contenu et le bord de l'écran."
+    },
+    {
+      "name": "header.height",
+      "cssVariable": "--header-height",
+      "value": "4.5rem",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Hauteur du header fixe. Sert aussi à décaler les ancres pour qu'elles ne passent pas dessous."
+    },
+    {
+      "name": "ease.out",
+      "cssVariable": "--ease-out",
+      "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "type": "cubicBezier",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Courbe par défaut : départ rapide, arrivée douce. Pour presque toutes les transitions."
+    },
+    {
+      "name": "ease.spring",
+      "cssVariable": "--ease-spring",
+      "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+      "type": "cubicBezier",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Courbe avec léger rebond, pour les petits éléments qui apparaissent. À utiliser avec parcimonie."
+    },
+    {
+      "name": "duration",
+      "cssVariable": "--duration",
+      "value": "0.25s",
+      "type": "duration",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Durée standard : changement de thème, apparition d'une ombre."
+    },
+    {
+      "name": "duration.fast",
+      "cssVariable": "--duration-fast",
+      "value": "0.15s",
+      "type": "duration",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Retour immédiat au survol : couleur d'un lien, bordure d'un bouton."
+    },
+    {
+      "name": "duration.slow",
+      "cssVariable": "--duration-slow",
+      "value": "0.6s",
+      "type": "duration",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Apparitions au scroll et animations d'entrée."
+    },
+    {
+      "name": "transition",
+      "cssVariable": "--transition",
+      "value": "0.15s cubic-bezier(0.16, 1, 0.3, 1)",
+      "type": null,
+      "tier": "semantic",
+      "alias": null,
+      "description": "Raccourci durée + courbe pour les survols. S'écrit après la propriété : « color var(--transition) »."
+    },
+    {
+      "name": "z.header",
+      "cssVariable": "--z-header",
+      "value": 100,
+      "type": "number",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Niveau du header fixe."
+    },
+    {
+      "name": "z.menu",
+      "cssVariable": "--z-menu",
+      "value": 150,
+      "type": "number",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Niveau du menu mobile, au-dessus du header."
+    },
+    {
+      "name": "z.overlay",
+      "cssVariable": "--z-overlay",
+      "value": 500,
+      "type": "number",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Niveau des surfaces modales comme la palette de commandes, au-dessus de tout."
+    },
+    {
+      "name": "spacing.xs",
+      "cssVariable": "--spacing-xs",
+      "value": "0.5rem",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Espace serré entre éléments liés : icône et libellé, pastilles d'une liste."
+    },
+    {
+      "name": "spacing.sm",
+      "cssVariable": "--spacing-sm",
+      "value": "1rem",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Espace par défaut entre deux éléments d'un même bloc."
+    },
+    {
+      "name": "spacing.md",
+      "cssVariable": "--spacing-md",
+      "value": "2rem",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Espace entre deux blocs d'une même section."
+    },
+    {
+      "name": "spacing.lg",
+      "cssVariable": "--spacing-lg",
+      "value": "4rem",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Grand espace pour aérer une mise en page large."
+    },
+    {
+      "name": "spacing.xl",
+      "cssVariable": "--spacing-xl",
+      "value": "clamp(4rem, 10vw, 7rem)",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Espace vertical fluide entre deux sections de la page."
+    },
+    {
+      "name": "radius.sm",
+      "cssVariable": "--radius-sm",
+      "value": "6px",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Petits éléments : pastilles de compétences, anneau de focus, boutons icônes."
+    },
+    {
+      "name": "radius.md",
+      "cssVariable": "--radius-md",
+      "value": "10px",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Éléments moyens : champs de formulaire, blocs internes d'une carte."
+    },
+    {
+      "name": "radius.lg",
+      "cssVariable": "--radius-lg",
       "value": "16px",
       "type": "dimension",
-      "tier": "primitive",
+      "tier": "semantic",
       "alias": null,
-      "description": null
+      "description": "Grandes surfaces : cartes de projet, fenêtres de code, étude de cas."
     },
     {
-      "name": "space.inset.sm",
-      "cssVariable": "--space-inset-sm",
-      "value": "8px",
+      "name": "radius.full",
+      "cssVariable": "--radius-full",
+      "value": "999px",
       "type": "dimension",
       "tier": "semantic",
-      "alias": "space.2",
-      "description": "Marge intérieure des petits éléments : badges, champs compacts."
+      "alias": null,
+      "description": "Forme de pilule : boutons d'action, filtres, étiquettes arrondies."
     },
     {
-      "name": "space.inset.md",
-      "cssVariable": "--space-inset-md",
-      "value": "16px",
+      "name": "font.family",
+      "cssVariable": "--font-family",
+      "value": "Inter, system-ui, -apple-system, 'Segoe UI', sans-serif",
+      "type": "fontFamily",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Police de tout le texte courant, des titres et des boutons."
+    },
+    {
+      "name": "font.mono",
+      "cssVariable": "--font-mono",
+      "value": "'DM Mono', ui-monospace, 'SF Mono', 'Courier New', monospace",
+      "type": "fontFamily",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Police à chasse fixe : code, numéros de section, étiquettes techniques."
+    },
+    {
+      "name": "text.hero",
+      "cssVariable": "--text-hero",
+      "value": "clamp(2.75rem, 1.2rem + 6.4vw, 5rem)",
       "type": "dimension",
       "tier": "semantic",
-      "alias": "space.4",
-      "description": "Marge intérieure par défaut des cartes et marge horizontale des boutons."
+      "alias": null,
+      "description": "Taille fluide du grand titre d'accueil. Un seul usage par page."
+    },
+    {
+      "name": "text.section",
+      "cssVariable": "--text-section",
+      "value": "clamp(1.75rem, 1.1rem + 2.2vw, 2.5rem)",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Taille fluide des titres de section (h2)."
+    },
+    {
+      "name": "text.lg",
+      "cssVariable": "--text-lg",
+      "value": "1.0625rem",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Texte d'introduction ou d'accroche, un cran au-dessus du texte courant."
+    },
+    {
+      "name": "text.md",
+      "cssVariable": "--text-md",
+      "value": "0.9375rem",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Texte courant des paragraphes."
+    },
+    {
+      "name": "text.sm",
+      "cssVariable": "--text-sm",
+      "value": "0.8125rem",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Texte secondaire : descriptions de cartes, liens de navigation, boutons de filtre."
+    },
+    {
+      "name": "text.xs",
+      "cssVariable": "--text-xs",
+      "value": "0.75rem",
+      "type": "dimension",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Plus petite taille : étiquettes, badges, mentions techniques. Jamais pour un paragraphe."
+    },
+    {
+      "name": "shadow.glow",
+      "cssVariable": "--shadow-glow",
+      "value": "0 0 60px 0 rgba(99, 102, 241, 0.15), 0 0 120px 0 rgba(99, 102, 241, 0.08)",
+      "type": "shadow",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Halo coloré autour d'un élément mis en avant : fenêtre de code, étude de cas.",
+      "themes": {
+        "dark": {
+          "value": "0 0 60px 0 rgba(99, 102, 241, 0.15), 0 0 120px 0 rgba(99, 102, 241, 0.08)",
+          "alias": null
+        },
+        "light": {
+          "value": "0 18px 50px -24px rgba(79, 70, 229, 0.45)",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "shadow.lifted",
+      "cssVariable": "--shadow-lifted",
+      "value": "0 24px 60px -20px rgba(0, 0, 0, 0.8)",
+      "type": "shadow",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Ombre portée d'une carte soulevée au survol.",
+      "themes": {
+        "dark": {
+          "value": "0 24px 60px -20px rgba(0, 0, 0, 0.8)",
+          "alias": null
+        },
+        "light": {
+          "value": "0 24px 50px -24px rgba(13, 16, 32, 0.25)",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "spotlight",
+      "cssVariable": "--spotlight",
+      "value": "rgba(129, 140, 248, 0.16)",
+      "type": "color",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Couleur du halo qui suit le curseur sur les cartes.",
+      "themes": {
+        "dark": {
+          "value": "rgba(129, 140, 248, 0.16)",
+          "alias": null
+        },
+        "light": {
+          "value": "rgba(79, 70, 229, 0.1)",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "code.comment",
+      "cssVariable": "--code-comment",
+      "value": "#8b949e",
+      "type": "color",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Coloration syntaxique : commentaires.",
+      "themes": {
+        "dark": {
+          "value": "#8b949e",
+          "alias": null
+        },
+        "light": {
+          "value": "#6a737d",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "code.keyword",
+      "cssVariable": "--code-keyword",
+      "value": "#c792ea",
+      "type": "color",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Coloration syntaxique : mots-clés (const, as).",
+      "themes": {
+        "dark": {
+          "value": "#c792ea",
+          "alias": null
+        },
+        "light": {
+          "value": "#8250df",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "code.variable",
+      "cssVariable": "--code-variable",
+      "value": "#ffffff",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.white",
+      "description": "Coloration syntaxique : noms de variables.",
+      "themes": {
+        "dark": {
+          "value": "#ffffff",
+          "alias": "color.white"
+        },
+        "light": {
+          "value": "#0d1020",
+          "alias": "color.ink.950"
+        }
+      }
+    },
+    {
+      "name": "code.punctuation",
+      "cssVariable": "--code-punctuation",
+      "value": "#a0a0b0",
+      "type": "color",
+      "tier": "semantic",
+      "alias": "color.gray.400",
+      "description": "Coloration syntaxique : ponctuation et texte neutre.",
+      "themes": {
+        "dark": {
+          "value": "#a0a0b0",
+          "alias": "color.gray.400"
+        },
+        "light": {
+          "value": "#57606a",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "code.key",
+      "cssVariable": "--code-key",
+      "value": "#7ec8e3",
+      "type": "color",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Coloration syntaxique : clés d'objet et propriétés.",
+      "themes": {
+        "dark": {
+          "value": "#7ec8e3",
+          "alias": null
+        },
+        "light": {
+          "value": "#0550ae",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "code.string",
+      "cssVariable": "--code-string",
+      "value": "#c3e88d",
+      "type": "color",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Coloration syntaxique : chaînes de caractères.",
+      "themes": {
+        "dark": {
+          "value": "#c3e88d",
+          "alias": null
+        },
+        "light": {
+          "value": "#0a7a41",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "code.boolean",
+      "cssVariable": "--code-boolean",
+      "value": "#c792ea",
+      "type": "color",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Coloration syntaxique : booléens et null.",
+      "themes": {
+        "dark": {
+          "value": "#c792ea",
+          "alias": null
+        },
+        "light": {
+          "value": "#8250df",
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "code.number",
+      "cssVariable": "--code-number",
+      "value": "#f78c6c",
+      "type": "color",
+      "tier": "semantic",
+      "alias": null,
+      "description": "Coloration syntaxique : nombres.",
+      "themes": {
+        "dark": {
+          "value": "#f78c6c",
+          "alias": null
+        },
+        "light": {
+          "value": "#b35900",
+          "alias": null
+        }
+      }
     }
   ]
 }

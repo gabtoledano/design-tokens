@@ -1,21 +1,127 @@
 /**
- * Do not edit directly, this file was auto-generated.
+ * Design tokens de gabrieltoledano.dev, générés par Style Dictionary depuis tokens/.
+ * Ne pas modifier à la main : lancer npm run build.
+ * Thème sombre par défaut, thème clair avec data-theme="light" sur <html>.
  */
 
 :root {
   --color-white: #ffffff;
-  --color-gray-100: #f3f4f6;
-  --color-gray-900: #111827;
-  --color-blue-500: #2563eb;
-  --color-blue-700: #1d4ed8;
-  --space-2: 8px;
-  --space-4: 16px;
-  --color-text-default: var(--color-gray-900); /** Couleur du texte courant sur un fond clair. */
-  --color-text-on-action: var(--color-white); /** Texte et icônes posés sur un fond color.action.primary. Contraste conforme WCAG AA. */
-  --color-background-surface: var(--color-white); /** Fond principal des pages et des cartes. */
-  --color-background-subtle: var(--color-gray-100); /** Fond discret pour séparer une zone : encadré, ligne de tableau survolée. */
-  --color-action-primary: var(--color-blue-500); /** Fond des boutons principaux et couleur des liens. Une seule action principale par écran. */
-  --color-action-primary-hover: var(--color-blue-700); /** État survol et focus de color.action.primary. */
-  --space-inset-sm: var(--space-2); /** Marge intérieure des petits éléments : badges, champs compacts. */
-  --space-inset-md: var(--space-4); /** Marge intérieure par défaut des cartes et marge horizontale des boutons. */
+  --color-navy-800: #1a1a2e;
+  --color-navy-900: #111122;
+  --color-navy-950: #0a0a14;
+  --color-mist-50: #f5f6fb;
+  --color-mist-100: #eceefa;
+  --color-ink-500: #6b6f88;
+  --color-ink-600: #53566e;
+  --color-ink-950: #0d1020;
+  --color-gray-400: #a0a0b0;
+  --color-gray-500: #7680a0;
+  --color-indigo-400: #818cf8;
+  --color-indigo-600: #4f46e5;
+  --color-indigo-700: #4338ca;
+  --color-cyan-400: #22d3ee;
+  --color-cyan-700: #0e7490;
+  --color-green-500: #22c55e;
+  --color-green-700: #15803d;
+  --color-red-400: #f87171;
+  --color-red-600: #dc2626;
+  --container: 80rem; /** Largeur maximale du contenu centré de chaque section. */
+  --gutter: clamp(1.25rem, 5vw, 4rem); /** Marge latérale fluide entre le contenu et le bord de l'écran. */
+  --header-height: 4.5rem; /** Hauteur du header fixe. Sert aussi à décaler les ancres pour qu'elles ne passent pas dessous. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /** Courbe par défaut : départ rapide, arrivée douce. Pour presque toutes les transitions. */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /** Courbe avec léger rebond, pour les petits éléments qui apparaissent. À utiliser avec parcimonie. */
+  --duration: 0.25s; /** Durée standard : changement de thème, apparition d'une ombre. */
+  --duration-fast: 0.15s; /** Retour immédiat au survol : couleur d'un lien, bordure d'un bouton. */
+  --duration-slow: 0.6s; /** Apparitions au scroll et animations d'entrée. */
+  --z-header: 100; /** Niveau du header fixe. */
+  --z-menu: 150; /** Niveau du menu mobile, au-dessus du header. */
+  --z-overlay: 500; /** Niveau des surfaces modales comme la palette de commandes, au-dessus de tout. */
+  --spacing-xs: 0.5rem; /** Espace serré entre éléments liés : icône et libellé, pastilles d'une liste. */
+  --spacing-sm: 1rem; /** Espace par défaut entre deux éléments d'un même bloc. */
+  --spacing-md: 2rem; /** Espace entre deux blocs d'une même section. */
+  --spacing-lg: 4rem; /** Grand espace pour aérer une mise en page large. */
+  --spacing-xl: clamp(4rem, 10vw, 7rem); /** Espace vertical fluide entre deux sections de la page. */
+  --radius-sm: 6px; /** Petits éléments : pastilles de compétences, anneau de focus, boutons icônes. */
+  --radius-md: 10px; /** Éléments moyens : champs de formulaire, blocs internes d'une carte. */
+  --radius-lg: 16px; /** Grandes surfaces : cartes de projet, fenêtres de code, étude de cas. */
+  --radius-full: 999px; /** Forme de pilule : boutons d'action, filtres, étiquettes arrondies. */
+  --font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; /** Police de tout le texte courant, des titres et des boutons. */
+  --font-mono: 'DM Mono', ui-monospace, 'SF Mono', 'Courier New', monospace; /** Police à chasse fixe : code, numéros de section, étiquettes techniques. */
+  --text-hero: clamp(2.75rem, 1.2rem + 6.4vw, 5rem); /** Taille fluide du grand titre d'accueil. Un seul usage par page. */
+  --text-section: clamp(1.75rem, 1.1rem + 2.2vw, 2.5rem); /** Taille fluide des titres de section (h2). */
+  --text-lg: 1.0625rem; /** Texte d'introduction ou d'accroche, un cran au-dessus du texte courant. */
+  --text-md: 0.9375rem; /** Texte courant des paragraphes. */
+  --text-sm: 0.8125rem; /** Texte secondaire : descriptions de cartes, liens de navigation, boutons de filtre. */
+  --text-xs: 0.75rem; /** Plus petite taille : étiquettes, badges, mentions techniques. Jamais pour un paragraphe. */
+  --transition: var(--duration-fast) var(--ease-out); /** Raccourci durée + courbe pour les survols. S'écrit après la propriété : « color var(--transition) ». */
+}
+
+:root, [data-theme="dark"] {
+  --color-glass: rgba(10, 10, 20, 0.72); /** Fond semi-transparent du header fixe, à combiner avec un flou d'arrière-plan. */
+  --color-scrim: rgba(10, 10, 20, 0.95); /** Voile presque opaque derrière une étiquette posée sur une image, ou derrière une surface modale. */
+  --color-accent-soft: rgba(34, 211, 238, 0.08); /** Fond très léger teinté d'accent, pour signaler un état actif sans attirer l'œil. */
+  --color-accent-line: rgba(34, 211, 238, 0.4); /** Bordure teintée d'accent, par exemple autour d'une étiquette de catégorie. */
+  --color-border: rgba(255, 255, 255, 0.08); /** Bordure par défaut des cartes, champs et séparateurs. */
+  --color-border-strong: rgba(255, 255, 255, 0.16); /** Bordure renforcée au survol ou au focus d'un élément. */
+  --color-fill: rgba(255, 255, 255, 0.06); /** Remplissage léger d'un petit élément : pastille de compétence, barre de titre. */
+  --color-fill-hover: rgba(255, 255, 255, 0.1); /** État survol de color.fill. */
+  --shadow-glow: 0 0 60px 0 rgba(99, 102, 241, 0.15), 0 0 120px 0 rgba(99, 102, 241, 0.08); /** Halo coloré autour d'un élément mis en avant : fenêtre de code, étude de cas. */
+  --shadow-lifted: 0 24px 60px -20px rgba(0, 0, 0, 0.8); /** Ombre portée d'une carte soulevée au survol. */
+  --spotlight: rgba(129, 140, 248, 0.16); /** Couleur du halo qui suit le curseur sur les cartes. */
+  --code-comment: #8b949e; /** Coloration syntaxique : commentaires. */
+  --code-keyword: #c792ea; /** Coloration syntaxique : mots-clés (const, as). */
+  --code-key: #7ec8e3; /** Coloration syntaxique : clés d'objet et propriétés. */
+  --code-string: #c3e88d; /** Coloration syntaxique : chaînes de caractères. */
+  --code-boolean: #c792ea; /** Coloration syntaxique : booléens et null. */
+  --code-number: #f78c6c; /** Coloration syntaxique : nombres. */
+  --color-bg: var(--color-navy-950); /** Fond de la page. */
+  --color-bg-elevated: var(--color-navy-900); /** Fond des surfaces posées sur la page : cartes, fenêtres de code, palette de commandes. */
+  --color-bg-subtle: var(--color-navy-800); /** Fond discret d'une zone en retrait, par exemple derrière une image de projet. */
+  --color-primary: var(--color-indigo-600); /** Couleur de marque : fond du bouton d'action principal et du filtre actif. Une seule action principale par zone. */
+  --color-primary-hover: var(--color-indigo-700); /** État survol de color.primary. */
+  --color-primary-light: var(--color-indigo-400); /** Variante de la couleur de marque pour du texte ou un dégradé sur fond de page. */
+  --color-on-primary: var(--color-white); /** Texte et icônes posés sur un fond color.primary. Contraste conforme WCAG AA. */
+  --color-accent: var(--color-cyan-400); /** Couleur d'accent : liens au survol, numéros de section, anneau de focus. Jamais en fond de grande surface. */
+  --color-text: var(--color-white); /** Texte principal : titres et contenus importants. */
+  --color-text-muted: var(--color-gray-400); /** Texte courant secondaire : paragraphes, descriptions de cartes. */
+  --color-text-subtle: var(--color-gray-500); /** Texte tertiaire : mentions, compteurs, notes. Réservé aux petits textes peu importants. */
+  --color-success: var(--color-green-500); /** Retour positif : message envoyé, validation réussie. */
+  --color-danger: var(--color-red-400); /** Erreur : champ invalide, échec d'envoi. */
+  --code-variable: var(--color-white); /** Coloration syntaxique : noms de variables. */
+  --code-punctuation: var(--color-gray-400); /** Coloration syntaxique : ponctuation et texte neutre. */
+}
+
+[data-theme="light"] {
+  --color-glass: rgba(245, 246, 251, 0.75);
+  --color-scrim: rgba(255, 255, 255, 0.95);
+  --color-accent-soft: rgba(14, 116, 144, 0.07);
+  --color-accent-line: rgba(14, 116, 144, 0.35);
+  --color-border: rgba(13, 16, 32, 0.1);
+  --color-border-strong: rgba(13, 16, 32, 0.2);
+  --color-fill: rgba(13, 16, 32, 0.045);
+  --color-fill-hover: rgba(13, 16, 32, 0.08);
+  --shadow-glow: 0 18px 50px -24px rgba(79, 70, 229, 0.45);
+  --shadow-lifted: 0 24px 50px -24px rgba(13, 16, 32, 0.25);
+  --spotlight: rgba(79, 70, 229, 0.1);
+  --code-comment: #6a737d;
+  --code-keyword: #8250df;
+  --code-punctuation: #57606a;
+  --code-key: #0550ae;
+  --code-string: #0a7a41;
+  --code-boolean: #8250df;
+  --code-number: #b35900;
+  --color-bg: var(--color-mist-50);
+  --color-bg-elevated: var(--color-white);
+  --color-bg-subtle: var(--color-mist-100);
+  --color-primary: var(--color-indigo-600);
+  --color-primary-hover: var(--color-indigo-700);
+  --color-primary-light: var(--color-indigo-700);
+  --color-on-primary: var(--color-white);
+  --color-accent: var(--color-cyan-700);
+  --color-text: var(--color-ink-950);
+  --color-text-muted: var(--color-ink-600);
+  --color-text-subtle: var(--color-ink-500);
+  --color-success: var(--color-green-700);
+  --color-danger: var(--color-red-600);
+  --code-variable: var(--color-ink-950);
 }
