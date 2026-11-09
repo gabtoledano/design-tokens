@@ -78,14 +78,30 @@ Sortie pour les agents :
    - sinon dans `tokens/themes/dark.json`, puis sa valeur claire au même endroit dans `tokens/themes/light.json`.
 3. Lance `npm run check` puis `npm run build`, et commite aussi le dossier `build/`.
 
-## Utilisation dans le portfolio
+## Utilisation dans un projet
 
-Le dépôt [portfolio](https://github.com/gabtoledano/portfolio) utilise une copie des deux fichiers générés :
+Le dépôt s'installe comme un paquet npm, directement depuis GitHub. C'est ce que fait le [portfolio](https://github.com/gabtoledano/portfolio) :
 
-| Fichier généré | Copie dans le portfolio |
-| --- | --- |
-| `build/tokens.css` | `src/styles/tokens.css` |
-| `build/tokens.agents.json` | `src/data/design-tokens.agents.json` |
+```bash
+npm install github:gabtoledano/design-tokens
+```
+
+```css
+/* Toutes les variables, dans les deux thèmes */
+@import "design-tokens/build/tokens.css";
+```
+
+```ts
+// Le JSON pour les agents, par exemple pour documenter les tokens
+import agents from "design-tokens/build/tokens.agents.json";
+```
+
+Le paquet ne contient que `build/` et ce README. C'est pour cela que `build/` est commité, et que la CI vérifie qu'il est à jour.
+
+Pour faire passer un changement de token dans le portfolio :
+
+1. Modifier le token ici, lancer `npm run check` puis `npm run build`, et pousser sur `main`.
+2. Dans le portfolio, lancer `npm update design-tokens`, puis commiter le `package-lock.json`. C'est lui qui fixe la version exacte utilisée.
 
 Le thème est piloté par l'attribut `data-theme` sur `<html>`. Les composants n'utilisent que des tokens sémantiques, jamais la palette.
 

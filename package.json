@@ -1,9 +1,13 @@
 {
   "name": "design-tokens",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Design tokens de gabrieltoledano.dev (DTCG, thèmes sombre et clair), lisibles par les humains et par les agents IA",
   "type": "module",
   "private": true,
+  "files": [
+    "build",
+    "README.md"
+  ],
   "scripts": {
     "check": "node scripts/check-descriptions.js",
     "build": "node build.js"
